@@ -15,10 +15,13 @@ function status(val) {
   }
 }
 
-const apiKey="REMOVED_CREDENTIAL_DO_NOT_USE___";
-//const apiToken="REMOVED_CREDENTIAL_DO_NOT_USE___________________________________"
-const apiToken="REMOVED_CREDENTIAL_DO_NOT_USE___________________________________"
+const apiKey="";
+const apiToken=""
 function trello() {
+    if (!apiKey || !apiToken) {
+      console.warn("Trello integration is disabled pending secure configuration.");
+      return;
+    }
     console.log("hello peoples");
     //fetch('https://api.trello.com/1/members/me/boards?key={apiKey}&token={apiToken}')
     fetch(`https://api.trello.com/1/members/me/boards?key={${apiKey}}&token={${apiToken}}`)
